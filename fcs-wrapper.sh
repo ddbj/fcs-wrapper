@@ -17,6 +17,11 @@ if [ ! -f "$FILEPATH" ]; then
   exit 1
 fi
 
+if [ ! -d "${GXDB_LOC}" ]; then
+  echo "Directory of reference files are missing [${GXDB_LOC}]. Maybe initialized, please place it."
+  exit 1
+fi
+
 
 TARGETFILEBASENAME=$(basename ${FILEPATH})
 TARGETFILEDIRNAME=$(dirname ${FILEPATH} | xargs basename)
