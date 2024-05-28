@@ -1,5 +1,12 @@
 # FCS-wrapper
 
+## Prerequisite
+
+Download or put following 2 files to current directory
+
+- fcs.py
+- fcs-gx.sif
+
 ## How to execute
 
 ```console
