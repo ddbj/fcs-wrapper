@@ -3,7 +3,7 @@
 ## How to execute
 
 ```console
-./fcs_py_execute.sh <fasta_file_path> <taxid>
+./fcs-wrapper.sh <fasta_file_path> <taxid>
 ```
 
 - fasta\_file\_path

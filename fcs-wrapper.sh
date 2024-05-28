@@ -21,8 +21,8 @@ fi
 TARGETFILEBASENAME=$(basename ${FILEPATH})
 TARGETFILEDIRNAME=$(dirname ${FILEPATH} | xargs basename)
 OUTPUTBASE=$(dirname ${FILEPATH} | xargs dirname)
-OUTDIR=${OUTPUTBASE}/fcs-gx/${TARGETFILEDIRNAME}_${TARGETFILEBASENAME}
-STATSDIR=${OUTDIR}_stats
+OUTDIR=${OUTPUTBASE}/fcs-gx/
+STATSDIR=${OUTDIR}
 
 
 # Copy to data1
