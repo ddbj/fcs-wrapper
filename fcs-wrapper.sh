@@ -10,7 +10,7 @@ OUTDIR=""
 while [[ "$#" -gt 2 ]]; do
   case $1 in
     --outdir)
-      outdir=$2
+      outdir=$2/fcs-gx/
       shift 2
       ;;
     *)
@@ -23,7 +23,10 @@ done
 
 #
 if [ "$#" -ne 2 ]; then
-  echo "Usage: $0 <fasta_file_path> <taxid>"
+  echo "Usage: $0 [--outdir /path/to/outdirdir] fasta_file_path taxid"
+  echo "          --outdir output directory  Default: same path of fasta file"
+  echo "                                       this script create directory which name is 'fcx-gx'"
+  echo "                                       all output files will be output to 'fcs-gx'" 
   exit 1
 fi
 FILEPATH=$1
