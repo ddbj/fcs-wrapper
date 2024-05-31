@@ -5,6 +5,22 @@ set -u
 CORES=63
 GXDB_LOC=/data1/my_tmpfs
 
+# Parse optional parameters
+OUTDIR=""
+while [[ "$#" -gt 2 ]]; do
+  case $1 in
+    --outdir)
+      outdir=$2
+      shift 2
+      ;;
+    *)
+      echo "Unknown parameter: $1"
+      exit 1
+      ;;
+  esac
+done
+
+
 #
 if [ "$#" -ne 2 ]; then
   echo "Usage: $0 <fasta_file_path> <taxid>"
@@ -26,7 +42,11 @@ fi
 TARGETFILEBASENAME=$(basename ${FILEPATH})
 TARGETFILEDIRNAME=$(dirname ${FILEPATH} | xargs basename)
 OUTPUTBASE=$(dirname ${FILEPATH} | xargs dirname)
-OUTDIR=${OUTPUTBASE}/fcs-gx/
+
+# Set value for OUTDIR if it is empty
+if [ -z "${OUTDIR}" ]; then
+  OUTDIR=${OUTPUTBASE}/fcs-gx/
+fi
 STATSDIR=${OUTDIR}
 
 
