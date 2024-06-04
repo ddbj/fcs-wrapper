@@ -5,9 +5,28 @@ set -u
 CORES=63
 GXDB_LOC=/data1/my_tmpfs
 
+# Parse optional parameters
+OUTDIR=""
+while [[ "$#" -gt 2 ]]; do
+  case $1 in
+    --outdir)
+      outdir=$2/fcs-gx/
+      shift 2
+      ;;
+    *)
+      echo "Unknown parameter: $1"
+      exit 1
+      ;;
+  esac
+done
+
+
 #
 if [ "$#" -ne 2 ]; then
-  echo "Usage: $0 <fasta_file_path> <taxid>"
+  echo "Usage: $0 [--outdir /path/to/outdirdir] fasta_file_path taxid"
+  echo "          --outdir output directory  Default: same path of fasta file"
+  echo "                                       this script create directory which name is 'fcx-gx'"
+  echo "                                       all output files will be output to 'fcs-gx'" 
   exit 1
 fi
 FILEPATH=$1
@@ -26,7 +45,11 @@ fi
 TARGETFILEBASENAME=$(basename ${FILEPATH})
 TARGETFILEDIRNAME=$(dirname ${FILEPATH} | xargs basename)
 OUTPUTBASE=$(dirname ${FILEPATH} | xargs dirname)
-OUTDIR=${OUTPUTBASE}/fcs-gx/
+
+# Set value for OUTDIR if it is empty
+if [ -z "${OUTDIR}" ]; then
+  OUTDIR=${OUTPUTBASE}/fcs-gx/
+fi
 STATSDIR=${OUTDIR}
 
 
