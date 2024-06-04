@@ -10,7 +10,7 @@ OUTDIR=""
 while [[ "$#" -gt 2 ]]; do
   case $1 in
     --outdir)
-      outdir=$2/fcs-gx/
+      OUTDIR=$2/fcs-gx/
       shift 2
       ;;
     *)
@@ -19,7 +19,6 @@ while [[ "$#" -gt 2 ]]; do
       ;;
   esac
 done
-
 
 #
 if [ "$#" -ne 2 ]; then
@@ -32,7 +31,7 @@ fi
 FILEPATH=$1
 SPECIES_TAXID=$2
 if [ ! -f "$FILEPATH" ]; then
-  echo "FASTA FILE [$FILE_PATH] does not exist"
+  echo "FASTA FILE [$FILEPATH] does not exist"
   exit 1
 fi
 
