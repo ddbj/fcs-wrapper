@@ -85,7 +85,7 @@ Execute fcs-wrapper.sh with `--outdir` option
 After execution, no directories and files are created under input directory.
 
 ```
-manabu@at096:~/work/2023/FCS/benchmark/benchmark202405_data1$ tree NSUB000020/
+$ tree NSUB000020/
 NSUB000020/
 └── 20240527-105300
     └── GCA_012927515.1_ASM1292751v1_genomic.fna.gz
@@ -97,7 +97,7 @@ NSUB000020/
 `fcs-gx` is created and all output files are located there.
 
 ```
-manabu@at096:~/work/2023/FCS/benchmark/benchmark202405_data1$ tree 40001_outputdir/
+$ tree 40001_outputdir/
 40001_outputdir/
 └── fcs-gx
     ├── GCA_012927515.1_ASM1292751v1_genomic.fna.40001.fcs_gx_report.txt
